@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Sahay - Your Trusted Travel Companion in India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; 
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: color 1s ease-in-out;
+        }
+        .hero-section.theme-dark { color: #1e293b; /* slate-800 */ }
+        .hero-section.theme-light { color: #ffffff; }
+
+        .hero-bg-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-color: #000;
+        }
+        .hero-bg-slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: -1;
+            transition: background 1s ease-in-out;
+        }
+        .hero-section.theme-dark .hero-bg-slider::after {
+             background: rgba(255,255,255,0.2);
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stat-card {
+            background: linear-gradient(145deg, #f9fafb, #eef2f5);
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-slate-900 font-display">Tour Sahay</h1>
+            <div class="hidden md:flex items-center space-x-8">
+                 <a href="#problem" class="text-slate-600 hover:text-indigo-600 transition-colors">The Problem</a>
+                 <a href="#features" class="text-slate-600 hover:text-indigo-600 transition-colors">Features</a>
+                 <a href="#partners" class="text-slate-600 hover:text-indigo-600 transition-colors">Partners</a>
+                 <a href="#how-it-works" class="text-slate-600 hover:text-indigo-600 transition-colors">How It Works</a>
+            </div>
+            <a href="#" class="bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-indigo-700 transition-colors">Start Planning</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero-section" id="hero">
+            <div class="hero-bg-slider">
+                <div class="slide active" data-theme="dark" style="background-image: url('https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2071&auto=format&fit=crop');"></div> <!-- Taj Mahal -->
+                <div class="slide" data-theme="light" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1974&auto=format&fit=crop');"></div> <!-- India Gate -->
+            </div>
+            <div class="container mx-auto px-6 z-10">
+                <h2 class="text-5xl md:text-7xl font-display leading-tight mb-4">Explore India, with Ease.</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 current-theme-text-subtle">
+                    Your all-in-one, trusted platform for secure, seamless, and authentic travel across India.
+                </p>
+                <a href="#problem" class="bg-white text-indigo-600 font-bold px-8 py-4 rounded-lg hover:bg-slate-100 transition-transform hover:scale-105 text-lg shadow-2xl">Discover the Solution</a>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section id="problem" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h3 class="text-4xl md:text-5xl font-display text-slate-900">The Modern Traveler's Dilemma</h3>
+                    <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-lg">Every journey in India is vibrant, but often comes with a set of challenges.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- Security Card -->
+                    <div class="text-center p-6 fade-in" style="transition-delay: 100ms;">
+                        <div class="mx-auto bg-red-100 text-red-600 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Security & Trust</h4>
+                        <p class="text-slate-600">From payment frauds to personal safety, tourists often feel vulnerable due to the lack of a verified support system.</p>
+                    </div>
+                    <!-- Ease Card -->
+                    <div class="text-center p-6 fade-in" style="transition-delay: 200ms;">
+                         <div class="mx-auto bg-blue-100 text-blue-600 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Ease & Efficiency</h4>
+                        <p class="text-slate-600">The hassle of using multiple apps for planning, booking, and navigating creates a disjointed and stressful experience.</p>
+                    </div>
+                    <!-- Affordability Card -->
+                    <div class="text-center p-6 fade-in" style="transition-delay: 300ms;">
+                         <div class="mx-auto bg-green-100 text-green-600 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Affordability & Value</h4>
+                        <p class="text-slate-600">Uncertain pricing and a lack of transparency mean tourists constantly worry about fair value for their money.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h3 class="text-4xl md:text-5xl font-display text-slate-900">Your All-in-One Travel Solution</h3>
+                    <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-lg">Tour Sahay is packed with powerful, integrated features to address every traveler's need.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 fade-in">
+                        <h5 class="text-xl font-bold mb-3">Dynamic AI Trip Planner</h5>
+                        <p class="text-slate-600">Input your interests, budget, and timeline. Our AI generates an optimized itinerary with real-time adjustments for delays, and lets you prioritize between speed and cost.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 fade-in">
+                        <h5 class="text-xl font-bold mb-3">Verified Service Ecosystem</h5>
+                        <p class="text-slate-600">Book from a curated list of police-verified hotels, drivers, and guides. All rates are standardized and transparent, eliminating haggling.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 fade-in">
+                        <h5 class="text-xl font-bold mb-3">AI Companion & AR Guide</h5>
+                        <p class="text-slate-600">Ask your AI companion anything. Use your camera for AR overlays on monuments, providing rich historical context right on your screen.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 fade-in">
+                        <h5 class="text-xl font-bold mb-3">Offline Multi-Language Translator</h5>
+                        <p class="text-slate-600">Communicate with anyone, anywhere. Features voice-to-voice conversation and camera translation for menus and signboards, even without internet.</p>
+                    </div>
+                    <!-- Feature 5 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 fade-in">
+                        <h5 class="text-xl font-bold mb-3">Secure UPI Payments</h5>
+                        <p class="text-slate-600">Enjoy a cashless journey with India's secure UPI. All payments are digital, tracked, and protected via a built-in escrow system for services.</p>
+                    </div>
+                    <!-- Feature 6 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 fade-in">
+                        <h5 class="text-xl font-bold mb-3">Guardian Safety Module</h5>
+                        <p class="text-slate-600">A one-touch SOS button shares your live location with emergency contacts and authorities. Get geo-fenced alerts for unsafe areas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- State Tourism Partners Section -->
+        <section id="partners" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h3 class="text-4xl md:text-5xl font-display text-slate-900">In Partnership with Incredible India</h3>
+                    <p class="text-slate-600 mt-4 max-w-3xl mx-auto text-lg">We collaborate with official state tourism departments to bring you verified information and authentic experiences, ensuring your journey is endorsed by the experts.</p>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+                    <img src="https://placehold.co/150x75/f0f0f0/999999?text=Kerala+Tourism" alt="Kerala Tourism Logo" class="h-16 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 fade-in">
+                    <img src="https://placehold.co/150x75/f0f0f0/999999?text=Bihar+Tourism" alt="Bihar Tourism Logo" class="h-16 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 fade-in" style="transition-delay: 100ms;">
+                    <img src="https://placehold.co/150x75/f0f0f0/999999?text=Rajasthan+Tourism" alt="Rajasthan Tourism Logo" class="h-16 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 fade-in" style="transition-delay: 200ms;">
+                    <img src="https://placehold.co/150x75/f0f0f0/999999?text=Goa+Tourism" alt="Goa Tourism Logo" class="h-16 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 fade-in" style="transition-delay: 300ms;">
+                    <img src="https://placehold.co/150x75/f0f0f0/999999?text=Incredible+India" alt="Incredible India Logo" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 fade-in" style="transition-delay: 400ms;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Driven Insights Section -->
+        <section id="data" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16 fade-in">
+                    <h3 class="text-4xl md:text-5xl font-display text-slate-900">Data-Driven Insights for Tourism</h3>
+                    <p class="text-slate-600 mt-4 max-w-3xl mx-auto text-lg">Our platform provides valuable analytics to help authorities make informed decisions, improve infrastructure, and promote sustainable tourism.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-10 text-center">
+                    <div class="stat-card p-8 rounded-xl border border-slate-200 shadow-sm fade-in">
+                        <h4 class="text-5xl font-bold text-indigo-600">40+</h4>
+                        <p class="mt-2 text-slate-700 font-semibold">UNESCO World Heritage Sites cataloged and integrated with AR guides.</p>
+                    </div>
+                    <div class="stat-card p-8 rounded-xl border border-slate-200 shadow-sm fade-in" style="transition-delay: 150ms;">
+                        <h4 class="text-5xl font-bold text-indigo-600">10,000+</h4>
+                        <p class="mt-2 text-slate-700 font-semibold">Verified partners including hotels, drivers, and guides across the nation.</p>
+                    </div>
+                     <div class="stat-card p-8 rounded-xl border border-slate-200 shadow-sm fade-in" style="transition-delay: 300ms;">
+                        <h4 class="text-5xl font-bold text-indigo-600">Real-Time</h4>
+                        <p class="mt-2 text-slate-700 font-semibold">Analytics on tourist footfall, popular circuits, and spending patterns for state boards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works section -->
+        <section id="how-it-works" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16 fade-in">
+                    <h3 class="text-4xl md:text-5xl font-display text-slate-900">Effortless Travel in 4 Steps</h3>
+                </div>
+                <div class="relative grid md:grid-cols-4 gap-8 text-center">
+                    <div class="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 hidden md:block" style="transform: translateY(-50%); z-index:0;"></div>
+                    <div class="absolute top-1/2 left-0 w-full h-0.5 bg-indigo-500 hidden md:block" style="transform: translateY(-50%); width: 25%; z-index:0;"></div>
+                    <!-- Step 1 -->
+                    <div class="relative z-10 fade-in">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-white border-2 border-indigo-500 flex items-center justify-center text-indigo-600 text-3xl font-bold shadow-lg">1</div>
+                        <h4 class="mt-4 text-xl font-semibold">Plan</h4>
+                        <p class="mt-2 text-slate-600">Tell us your dream trip. Our AI will craft the perfect itinerary.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative z-10 fade-in" style="transition-delay: 150ms;">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-slate-400 text-3xl font-bold shadow-lg">2</div>
+                        <h4 class="mt-4 text-xl font-semibold">Book</h4>
+                        <p class="mt-2 text-slate-600">Confirm your verified hotels, cabs & guides in one tap.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative z-10 fade-in" style="transition-delay: 300ms;">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-slate-400 text-3xl font-bold shadow-lg">3</div>
+                        <h4 class="mt-4 text-xl font-semibold">Explore</h4>
+                        <p class="mt-2 text-slate-600">Navigate with AR, translate languages, and discover hidden gems.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative z-10 fade-in" style="transition-delay: 450ms;">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-white border-2 border-slate-300 flex items-center justify-center text-slate-400 text-3xl font-bold shadow-lg">4</div>
+                        <h4 class="mt-4 text-xl font-semibold">Pay</h4>
+                        <p class="mt-2 text-slate-600">Use secure UPI for all your bookings and purchases, completely cashless.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-display text-2xl">Tour Sahay</p>
+            <p class="text-slate-400 mt-3 max-w-lg mx-auto">A conceptual project for the Smart India Hackathon 2025, designed to revolutionize tourism in India through technology.</p>
+        </div>
+    </footer>
+
+    <script>
+        const heroSection = document.getElementById('hero');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function updateHeroTheme() {
+            const activeSlide = slides[currentSlide];
+            const theme = activeSlide.getAttribute('data-theme'); // 'light' or 'dark'
+            
+            if (theme === 'dark') {
+                heroSection.classList.remove('theme-light');
+                heroSection.classList.add('theme-dark');
+            } else {
+                heroSection.classList.remove('theme-dark');
+                heroSection.classList.add('theme-light');
+            }
+        }
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+            updateHeroTheme();
+        }
+
+        // Initial theme set
+        document.addEventListener('DOMContentLoaded', updateHeroTheme);
+        
+        // Start slider
+        setInterval(nextSlide, 5000);
+
+        // Simple fade-in on scroll animation
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
